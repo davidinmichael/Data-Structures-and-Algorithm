@@ -1,3 +1,6 @@
+from turtle import position
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -56,7 +59,7 @@ class LinkedList:
         temp.next = None
         self.length -= 1
         return temp
-    
+
     def pop_last(self):
         if self.length == 0:
             return None
@@ -68,6 +71,21 @@ class LinkedList:
         self.length -= 1
         return temp
 
+    def remove(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        elif index == 0:
+            return self.pop_first()
+        elif index == self.length - 1:
+            return self.pop_last()
+        else:
+            prev = self.get_item(index - 1)
+            temp = prev.next
+            prev.next = temp.next
+            temp.next = None
+            self.length -= 1
+            return temp
+
 
 my_llist = LinkedList()
 my_llist.append(5)
@@ -75,6 +93,8 @@ my_llist.append(6)
 my_llist.append(7)
 my_llist.append(8)
 my_llist.prepend(4)
+my_llist.get_list()
+my_llist.remove(2)
 my_llist.get_list()
 my_llist.pop_first()
 my_llist.get_list()
