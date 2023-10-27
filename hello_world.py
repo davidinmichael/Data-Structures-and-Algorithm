@@ -86,6 +86,25 @@ class LinkedList:
             self.length -= 1
             return temp
 
+    def set_item(self, index, value):
+        item = self.get_item(index)
+        item.value = value
+        return item
+
+    def insert(self, index, value):
+        new_node = Node(value)
+        if index < 0 or index > self.length:
+            return False
+        elif index == 0:
+            return self.prepend(value)
+        elif index == self.length:
+            return self.prepend(value)
+        temp = self.get_item(index - 1)
+        next = temp.next
+        temp.next = new_node
+        new_node.next = next
+        return new_node
+
 
 my_llist = LinkedList()
 my_llist.append(5)
@@ -93,11 +112,15 @@ my_llist.append(6)
 my_llist.append(7)
 my_llist.append(8)
 my_llist.prepend(4)
+# my_llist.get_list()
+# my_llist.remove(2)
+# my_llist.get_list()
+# my_llist.pop_first()
+# my_llist.get_list()
+# my_llist.pop_last()
+# my_llist.get_list()
+# my_llist.set_item(0, 1)
 my_llist.get_list()
-my_llist.remove(2)
-my_llist.get_list()
-my_llist.pop_first()
-my_llist.get_list()
-my_llist.pop_last()
+my_llist.insert(4, 3)
 my_llist.get_list()
 # my_llist.get_item(3)

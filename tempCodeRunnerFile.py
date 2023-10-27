@@ -1,2 +1,2 @@
-xt = temp.next
-            temp.next = None
+
+# my_llist.set_item(0, 1)
