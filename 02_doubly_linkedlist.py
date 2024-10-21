@@ -40,7 +40,17 @@ class DoublyLinkedList:
             self.head = new_node
         self.length += 1
         return new_node
+    
+    def pop_first(self):
+        if self.length == 0:
+            return False
+        else:
+            self.head.next.prev = None
+            self.head = self.head.next
+        self.length -= 1
+        return True
 
 my_doubly_linkedlist = DoublyLinkedList(1)
 my_doubly_linkedlist.prepend(0)
+my_doubly_linkedlist.pop_first()
 my_doubly_linkedlist.print_list()
