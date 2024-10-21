@@ -82,6 +82,10 @@ class DoublyLinkedList:
             temp.next = new_node
             self.length += 1
             return new_node
+        
+    def remove(self, index):
+        pass
+        # Implement this
 
 my_doubly_linkedlist = DoublyLinkedList(1)
 my_doubly_linkedlist.prepend(0)
