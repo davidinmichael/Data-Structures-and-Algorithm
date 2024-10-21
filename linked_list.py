@@ -90,7 +90,19 @@ class LinkedList:
         for _ in range(index - 1):
             temp = temp.next
         temp.next = temp.next.next
+        self.length -= 1
         return True
+    
+    def reverse(self):
+        prev = None
+        current = self.head
+        self.tail = self.head
+        while current is not None:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
 
                 
 
@@ -104,5 +116,6 @@ my_linked_list = LinkedList(5)
 # print(f"Get Node: {my_linked_list.get(1).value}")
 my_linked_list.prepend_multiple_nodes(values=[1, 2, 3, 4])
 my_linked_list.insert(1, "This is inserted")
-my_linked_list.remove(4)
+# my_linked_list.remove(1)
+my_linked_list.reverse()
 my_linked_list.print_list()
