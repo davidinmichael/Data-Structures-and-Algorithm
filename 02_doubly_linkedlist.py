@@ -49,8 +49,18 @@ class DoublyLinkedList:
             self.head = self.head.next
         self.length -= 1
         return True
+    
+    def pop_last(self):
+        if self.length == 0:
+            return False
+        else:
+            self.tail.prev.next = None
+            self.tail = self.tail.prev
+        self.length -= 1
+        return True
 
 my_doubly_linkedlist = DoublyLinkedList(1)
 my_doubly_linkedlist.prepend(0)
-my_doubly_linkedlist.pop_first()
+# my_doubly_linkedlist.pop_first()
+my_doubly_linkedlist.pop_last()
 my_doubly_linkedlist.print_list()
