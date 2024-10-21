@@ -76,23 +76,33 @@ class LinkedList:
         if index < 0 or index >= self.length:
             return None
         temp = self.head
-        for i in range(index - 1):
+        for _ in range(index - 1):
             temp = temp.next
         new_node.next = temp.next
         temp.next = new_node
         self.length += 1
         return True
+    
+    def remove(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index - 1):
+            temp = temp.next
+        temp.next = temp.next.next
+        return True
 
                 
 
-my_linked_list = LinkedList(1)
+my_linked_list = LinkedList(5)
 # my_linked_list.print_list()
-my_linked_list.append(5)
-my_linked_list.prepend(0)
-my_linked_list.append(6)
-my_linked_list.pop_first()
-my_linked_list.pop_last()
-print(f"Get Node: {my_linked_list.get(1).value}")
+# my_linked_list.append(5)
+# my_linked_list.prepend(1)
+# my_linked_list.append(6)
+# my_linked_list.pop_first()
+# my_linked_list.pop_last()
+# print(f"Get Node: {my_linked_list.get(1).value}")
+my_linked_list.prepend_multiple_nodes(values=[1, 2, 3, 4])
 my_linked_list.insert(1, "This is inserted")
-# my_linked_list.prepend_multiple_nodes(values=[7, 8, "David", "Michael"])
+my_linked_list.remove(4)
 my_linked_list.print_list()
