@@ -67,7 +67,7 @@ class LinkedList:
         if index < 0 or index >= self.length:
             return None
         temp = self.head
-        for _ in range(index):
+        for _ in range(index - 1):
             temp = temp.next
         return temp
     
@@ -84,7 +84,7 @@ class LinkedList:
         return True
     
     def remove(self, index):
-        if index < 0 or index >= self.length:
+        if index < 0 or index > self.length:
             return None
         temp = self.head
         for _ in range(index - 1):
@@ -113,9 +113,9 @@ my_linked_list = LinkedList(5)
 # my_linked_list.append(6)
 # my_linked_list.pop_first()
 # my_linked_list.pop_last()
-# print(f"Get Node: {my_linked_list.get(1).value}")
 my_linked_list.prepend_multiple_nodes(values=[1, 2, 3, 4])
-my_linked_list.insert(1, "This is inserted")
+print(f"Get Node: {my_linked_list.get(1).value}")
+# my_linked_list.insert(1, "This is inserted")
 # my_linked_list.remove(1)
-my_linked_list.reverse()
+# my_linked_list.reverse()
 my_linked_list.print_list()
