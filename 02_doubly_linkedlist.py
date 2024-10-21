@@ -67,11 +67,27 @@ class DoublyLinkedList:
             for _ in range(index - 1):
                 temp = temp.next
             return temp
+        
+    def insert(self, index, value):
+        new_node = Node(value)
+        if index < 0 or index > self.length:
+            return False
+        else:
+            temp = self.head
+            for _ in range(index - 1):
+                temp = temp.next
+            temp.next.prev = new_node
+            new_node.next = temp.next
+            new_node.prev = temp
+            temp.next = new_node
+            self.length += 1
+            return new_node
 
 my_doubly_linkedlist = DoublyLinkedList(1)
 my_doubly_linkedlist.prepend(0)
 my_doubly_linkedlist.append(2)
 # my_doubly_linkedlist.pop_first()
 # my_doubly_linkedlist.pop_last()
-print(f"Get: {my_doubly_linkedlist.get(2).value}")
+# print(f"Get: {my_doubly_linkedlist.get(2).value}")
+my_doubly_linkedlist.insert(2, "This is inserted")
 my_doubly_linkedlist.print_list()
