@@ -57,6 +57,14 @@ class LinkedList:
             temp = temp.next
         temp.next = None
         return True
+    
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
                 
 
 my_linked_list = LinkedList(1)
@@ -66,4 +74,5 @@ my_linked_list.prepend(0)
 my_linked_list.append(6)
 my_linked_list.pop_first()
 my_linked_list.pop_last()
+print(f"Get Node: {my_linked_list.get(1).value}")
 my_linked_list.print_list()
