@@ -40,7 +40,7 @@ class LinkedList:
         return new_node
     
     def prepend_multiple_nodes(self, values):
-        for i in values:
+        for i in reversed(values):
             self.prepend(i)
         return True
     
@@ -70,6 +70,19 @@ class LinkedList:
         for _ in range(index):
             temp = temp.next
         return temp
+    
+    def insert(self, index, value):
+        new_node = Node(value)
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for i in range(index - 1):
+            temp = temp.next
+        new_node.next = temp.next
+        temp.next = new_node
+        self.length += 1
+        return True
+
                 
 
 my_linked_list = LinkedList(1)
@@ -80,5 +93,6 @@ my_linked_list.append(6)
 my_linked_list.pop_first()
 my_linked_list.pop_last()
 print(f"Get Node: {my_linked_list.get(1).value}")
-my_linked_list.prepend_multiple_nodes(values=[7, 8, "David", "Michael"])
+my_linked_list.insert(1, "This is inserted")
+# my_linked_list.prepend_multiple_nodes(values=[7, 8, "David", "Michael"])
 my_linked_list.print_list()
