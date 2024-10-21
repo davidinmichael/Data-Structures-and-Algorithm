@@ -39,6 +39,11 @@ class LinkedList:
         self.length += 1
         return new_node
     
+    def prepend_multiple_nodes(self, values):
+        for i in values:
+            self.prepend(i)
+        return True
+    
     def pop_first(self):
         if self.length == 0:
             return None
@@ -75,4 +80,5 @@ my_linked_list.append(6)
 my_linked_list.pop_first()
 my_linked_list.pop_last()
 print(f"Get Node: {my_linked_list.get(1).value}")
+my_linked_list.prepend_multiple_nodes(values=[7, 8, "David", "Michael"])
 my_linked_list.print_list()
