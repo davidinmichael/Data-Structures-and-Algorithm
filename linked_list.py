@@ -27,6 +27,17 @@ class LinkedList:
             self.tail = new_node
         self.length += 1
         return True
+    
+    def prepend(self, value):
+        new_node = Node(value)
+        if not self.head:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+        return new_node
 
 my_linked_list = LinkedList(4)
 # my_linked_list.print_list()
