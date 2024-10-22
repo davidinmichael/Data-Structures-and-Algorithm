@@ -24,10 +24,11 @@ class Queue:
             self.first = new_node
             self.last = new_node
         else:
-            new_node.next = self.first
-            self.first = new_node
+            self.last.next = new_node
+            self.last = new_node
         self.length += 1
         return new_node
+
 
 my_queue = Queue(3)
 my_queue.enqueue(2)
