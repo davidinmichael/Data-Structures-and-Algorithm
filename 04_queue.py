@@ -28,8 +28,19 @@ class Queue:
             self.last = new_node
         self.length += 1
         return new_node
+    
+    def dequeue(self):
+        if self.length == 0:
+            return
+        else:
+            temp = self.first
+            self.first = self.first.next
+            temp.next = None
+            self.length -= 1
+            return True
 
 
 my_queue = Queue(3)
 my_queue.enqueue(2)
+my_queue.dequeue()
 my_queue.print_queue()
