@@ -116,6 +116,13 @@ class LinkedList:
             prev = current
             current = next_node
         self.head = prev
+    
+    def search(self, value):
+        temp = self.head
+        while temp:
+            if temp.value == value:
+                return temp.value
+            temp = temp.next
 
                 
 
@@ -127,8 +134,9 @@ my_linked_list = LinkedList(5)
 # my_linked_list.pop_first()
 # my_linked_list.pop_last()
 my_linked_list.prepend_multiple_nodes(values=[1, 2, 3, 4])
-print(f"Get Node: {my_linked_list.get(1).value}")
+# print(f"Get Node: {my_linked_list.get(1).value}")
 # my_linked_list.insert(1, "This is inserted")
 # my_linked_list.remove(1)
 # my_linked_list.reverse()
+print(f"Found: {my_linked_list.search(4)}")
 my_linked_list.print_list()
