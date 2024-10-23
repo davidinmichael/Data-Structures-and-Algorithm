@@ -123,6 +123,7 @@ class LinkedList:
             if temp.value == value:
                 return temp.value
             temp = temp.next
+        return f"{value} Not Found"
 
                 
 
@@ -138,5 +139,5 @@ my_linked_list.prepend_multiple_nodes(values=[1, 2, 3, 4])
 # my_linked_list.insert(1, "This is inserted")
 # my_linked_list.remove(1)
 # my_linked_list.reverse()
-print(f"Found: {my_linked_list.search(4)}")
+print(f"Found: {my_linked_list.search(7)}")
 my_linked_list.print_list()
