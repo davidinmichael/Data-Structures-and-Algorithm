@@ -83,6 +83,19 @@ class LinkedList:
         self.length += 1
         return True
     
+    def update(self, index, value):
+        if not self.head:
+            self.head = Node(value)
+            self.tail = self.head
+            self.length += 1
+            return self.head
+        else:
+            temp = self.head
+            for _ in range(index - 1):
+                temp = temp.next
+            temp.value = value
+            return True
+    
     def remove(self, index):
         if index < 0 or index > self.length:
             return None
