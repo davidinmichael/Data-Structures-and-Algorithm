@@ -7,9 +7,8 @@ class Node:
 
 
 class BinarySearchTree:
-    def __init__(self, value):
-        new_node = Node(value)
-        self.root = new_node
+    def __init__(self):
+        self.root = None
     
     def insert(self, value):
         new_node = Node(value)
@@ -31,3 +30,25 @@ class BinarySearchTree:
                     temp.right = new_node
                     return True
                 temp = temp.right
+
+    def contains(self, value):
+        temp = self.root
+        while temp is not None:
+            if value < temp.value:
+                temp = temp.left
+            elif value > temp.value:
+                temp = temp.right
+            else:
+                return True
+        return False
+
+    
+my_tree = BinarySearchTree()
+my_tree.insert(9)
+my_tree.insert(8)
+my_tree.insert(10)
+
+print(my_tree.root.value)
+print(my_tree.root.left.value)
+print(my_tree.root.right.value)
+print(my_tree.contains(8))
